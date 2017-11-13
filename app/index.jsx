@@ -6,7 +6,7 @@ import App from './app';
 import store from './store';
 
 render(
-    <Provider store={store}>
-        <App />
-    </Provider>
-, document.getElementById('app'));
+	<Provider store={store}>
+		<App />
+	</Provider>
+	, document.getElementById('app'));
