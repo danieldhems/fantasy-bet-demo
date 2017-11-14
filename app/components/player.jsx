@@ -4,9 +4,9 @@ import PlayerStyles from '../styles/player.css';
 
 const Player = ({ name, position, formation_place }) => (
 	<div styleName='player'>
-		{name}<br />
-		{position} <br />
-		{formation_place}<br />
+		<div styleName="number">{formation_place}</div>
+		<div styleName="name">{name}</div>
+		<div styleName="formation-place">{}</div>
 	</div>
 );
 

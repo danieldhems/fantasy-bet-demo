@@ -46,9 +46,17 @@ module.exports = {
 							importLoaders: true,
 							localIdentName: '[name]_[local]_[hash:base64:5]',
 							modules: true,
-							namedExport: true
+							namedExport: true,
+							url: true,
 						}
 					}
+				]
+			},
+			{
+				test: /\.(jpe?g|png|gif|svg)$/i,
+				loaders: [
+					'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+					'image-webpack-loader'
 				]
 			}
 		]

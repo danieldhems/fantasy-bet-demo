@@ -8,7 +8,6 @@ import Subscribe from 'components/Subscribe';
 import { Creators } from 'actions/AppActions';
 
 import Pitch from 'components/pitch';
-import Formation from 'components/formation';
 
 class App extends React.Component {
 	constructor(props){
@@ -16,7 +15,7 @@ class App extends React.Component {
 	}
 	componentDidMount(){
 		this.props.fetchInitialDataAttempt();
-		fetch('http://lineups.dev.fantech.io')
+		fetch('http://lineups.dev.fantech.io', {mode:'cors'})
 			.then( response => response.json())
 			.then( response => {
 				this.props.fetchInitialDataSuccess(response);
@@ -30,9 +29,7 @@ class App extends React.Component {
 		return (
 			<div className="app-container">
 				<Pitch>
-					<Formation>
-						{players}
-					</Formation>
+					{players}
 				</Pitch>
 				<Pusher
 					channel={PusherConfig.channel}
