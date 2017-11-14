@@ -1,11 +1,13 @@
 import React from 'react';
+import CSSModules from 'react-css-modules';
+import PlayerStyles from '../styles/player.css';
 
 const Player = ({ name, position, formation_place }) => (
-    <div className="player">
-        {name}<br />
-        {position} <br />
-        {formation_place}<br />
-    </div>
+	<div styleName='player'>
+		{name}<br />
+		{position} <br />
+		{formation_place}<br />
+	</div>
 );
 
-export default Player;
+export default CSSModules(Player, PlayerStyles);

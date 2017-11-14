@@ -1,4 +1,6 @@
 import React from 'react';
+import CSSModules from 'react-css-modules';
+import PitchStyles from '../styles/pitch.css';
 
 const Pitch = ({ children }) => (
 	<div className="pitch">
@@ -6,4 +8,4 @@ const Pitch = ({ children }) => (
 	</div>
 );
 
-export default Pitch;
+export default CSSModules(Pitch, PitchStyles);
