@@ -2,6 +2,7 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import PitchStyles from '../styles/pitch.css';
 import Player from 'components/player';
+import { arrayOf, object } from 'prop-types';
 
 class Pitch extends React.Component {
 	makePlayers(players){
@@ -21,12 +22,8 @@ class Pitch extends React.Component {
 			return (
 				<div styleName="pitch">
 					{
-						children.length === 0 &&
-						<p>Loading players...</p>
-					}
-					{
 						children.length > 0 &&
-						<div className="formation">
+						<div styleName="formation">
 							<div styleName="formation-tier">
 								{this.makePlayers(goalkeeper)}
 							</div>
@@ -47,7 +44,10 @@ class Pitch extends React.Component {
 
 		return null;
 	}
-
 }
+
+Pitch.propTypes = {
+	children: arrayOf(object).isRequired,
+};
 
 export default CSSModules(Pitch, PitchStyles);

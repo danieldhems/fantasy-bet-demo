@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Pusher from 'react-pusher';
+import { arrayOf, func, string, number, shape } from 'prop-types';
 
 import { Creators } from 'actions/AppActions';
 import PusherConfig from 'app/pusher-config';
@@ -57,5 +58,17 @@ const mapDispatchToProps = dispatch => ({
 	onReceiveUpdate: data =>
 		dispatch(Creators.onReceiveUpdate(data))
 });
+
+App.propTypes = {
+	players: arrayOf(shape({
+		name: string.isRequired,
+		position: string.isRequired,
+		formation_place: number.isRequired,
+	})).isRequired,
+	fetchInitialDataAttempt: func.isRequired,
+	fetchInitialDataSuccess: func.isRequired,
+	fetchInitialDataFailure: func.isRequired,
+	onReceiveUpdate: func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

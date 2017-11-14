@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+.formation {
+    composes: pitch;
+}
+
 .formation-tier {
     display: flex;
     flex-direction: column;
