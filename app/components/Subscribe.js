@@ -3,7 +3,7 @@ import Pusher from 'pusher-js';
 import config from '../pusher-config';
 
 const pusherClient = new Pusher(config.key, {
-    cluster: config.cluster
+	cluster: config.cluster
 });
 
 export default setPusherClient(pusherClient);

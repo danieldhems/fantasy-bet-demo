@@ -6,6 +6,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-size: contain;
+    margin-bottom: 20px;
 }
 
 .number {
@@ -22,4 +24,18 @@
 
 .formation-place {
     font-size:12px;
+}
+
+@media only screen and (min-width:560px){
+    .player {
+        width: calc(124px / 1.5);
+        height: calc(150px / 1.5);
+    }
+}
+
+@media only screen and (min-width:750px){
+    .player {
+        width: 124px;
+        height: 150px;
+    }
 }
