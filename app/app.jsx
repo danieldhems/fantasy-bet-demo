@@ -2,11 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Pusher from 'react-pusher';
 
-import PusherConfig from './pusher-config';
-import Subscribe from 'components/Subscribe';
-
 import { Creators } from 'actions/AppActions';
-
+import PusherConfig from 'app/pusher-config';
+import Subscribe from 'components/Subscribe';
 import Pitch from 'components/pitch';
 
 class App extends React.Component {
@@ -15,6 +13,10 @@ class App extends React.Component {
 	}
 	componentDidMount(){
 		this.props.fetchInitialDataAttempt();
+		/**
+		 * Given more time I would have abstracted the following request to a Redux Saga
+		 * as this is how I handle network requests as standard in my Redux apps
+		 */
 		fetch('http://lineups.dev.fantech.io', {mode:'cors'})
 			.then( response => response.json())
 			.then( response => {
